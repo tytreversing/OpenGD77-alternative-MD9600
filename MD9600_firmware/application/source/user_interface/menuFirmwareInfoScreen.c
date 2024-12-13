@@ -46,7 +46,7 @@ enum
 
 static const char *creditTexts[] =
 {
-		"Roger VK3KYY", "Daniel F1RMB", "Kai DG4KLU", "Colin G4EML", "Alex DL4LEX",
+		"OpenGD77 RUS:", "Aufwiegler", "https://opengd77rus.ru", "", "OpenGD77:", "Roger VK3KYY", "Daniel F1RMB", "Kai DG4KLU", "Colin G4EML", "Alex DL4LEX",
 #if defined(PLATFORM_RD5R)
 		"Dzmitry EW1ADG",
 #endif
@@ -147,6 +147,15 @@ static void handleEvent(uiEvent_t *ev)
 	}
 }
 
+#if defined(STM32F405xx) && ! defined(PLATFORM_MD9600)
+#if 0
+static uint32_t cpuGetUnique32(uint32_t byteNumber)
+{
+	return (*(__IO uint32_t *) (0x1FFF7A10 + 4 * (byteNumber)));
+}
+#endif
+#endif
+
 static void displayBuildDetails(bool playVP)
 {
 #if !defined(PLATFORM_GD77S)
@@ -156,15 +165,8 @@ static void displayBuildDetails(bool playVP)
 
 	displayClearBuf();
 
-	sprintf(dateTimeBuf, "%d%02d%02d%02d%02d%02d", BUILD_YEAR, BUILD_MONTH, BUILD_DAY, BUILD_HOUR, BUILD_MIN, BUILD_SEC);
+	sprintf(dateTimeBuf, "%d%02d%02d", BUILD_YEAR, BUILD_MONTH, BUILD_DAY);
 
-#if defined(PLATFORM_MD9600) || defined(PLATFORM_MDUV380) || defined(PLATFORM_MD380) || defined(PLATFORM_RT84_DM1701) || defined(PLATFORM_MD2017)
-	snprintf(versionBuf, SCREEN_LINE_BUFFER_SIZE, "[ %s", XSTRINGIFY(GITVERSION));
-#else
-	snprintf(versionBuf, SCREEN_LINE_BUFFER_SIZE, "[ %s", GITVERSION);
-#endif
-	versionBuf[9] = 0; // git hash id 7 char long;
-	strcat(versionBuf, (uiDataGlobal.dmrDisabled ? " F ]" : " D ]"));
 
 
 #if defined(PLATFORM_RD5R)
@@ -176,7 +178,7 @@ static void displayBuildDetails(bool playVP)
 	displayPrintCentered(5, radioModel, FONT_SIZE_3);
 	displayPrintCentered(20, currentLanguage->built, FONT_SIZE_2);
 	displayPrintCentered(30, dateTimeBuf , FONT_SIZE_2);
-	displayPrintCentered(40, versionBuf, FONT_SIZE_2);
+	//displayPrintCentered(40, versionBuf, FONT_SIZE_2);
 #endif
 
 // STM32 platforms (Genuine or Clone)
@@ -219,13 +221,13 @@ static void displayBuildDetails(bool playVP)
 	}
 
 #if defined(STM32F405xx) && ! defined(PLATFORM_MD9600)
-	sprintf(cpuTypeBuf,"CPU Sig  :0x%04X", cpuGetSignature());
+	sprintf(cpuTypeBuf, "CPU Sig  :0x%04X", cpuGetSignature());
 	displayPrintAt(8, 64, cpuTypeBuf , FONT_SIZE_2);
-	sprintf(cpuTypeBuf,"CPU Rev  :0x%04X", cpuGetRevision());
+	sprintf(cpuTypeBuf, "CPU Rev  :0x%04X", cpuGetRevision());
 	displayPrintAt(8, 74, cpuTypeBuf , FONT_SIZE_2);
-	sprintf(cpuTypeBuf,"CPU Pack :0x%04X", cpuGetPackage());
+	sprintf(cpuTypeBuf, "CPU Pack :0x%04X", cpuGetPackage());
 	displayPrintAt(8, 84, cpuTypeBuf , FONT_SIZE_2);
-	sprintf(cpuTypeBuf,"CPU Flash:%dkb", cpuGetFlashSize());
+	sprintf(cpuTypeBuf, "CPU Flash:%dkb", cpuGetFlashSize());
 	displayPrintAt(8, 94, cpuTypeBuf , FONT_SIZE_2);
 #endif
 
