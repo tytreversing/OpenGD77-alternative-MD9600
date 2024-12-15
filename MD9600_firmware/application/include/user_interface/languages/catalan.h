@@ -286,7 +286,7 @@ const stringsTable_t catalanLanguage =
 .aprs_turn_slope			= "Спуск", // MaxLen 16 (with ':' + 1..255 + '???/v')
 .aprs_turn_time				= "Время", // MaxLen 16 (with ':' + 5..180 + 's')
 .auto_lock				= "Автоблок.", // MaxLen 16 (with ':' + .off or 0.5..15 (.5 step) + 'min')
-.trackball				= "Trackball", // MaxLen 16 (with ':' + .on or .off)
+.trackball				= "Трекбол", // MaxLen 16 (with ':' + .on or .off)
 .dmr_force_dmo				= "Принуд. DMO", // MaxLen 16 (with ':' + .n_a or .on or .off)
 };
 /********************************************************************
