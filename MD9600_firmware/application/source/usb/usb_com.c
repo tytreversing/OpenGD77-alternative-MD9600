@@ -242,7 +242,7 @@ static void cpsHandleReadCommand(void)
 				{
 					uint32_t structVersion;
 					uint32_t radioType;
-					char gitRevision[16];
+					char identifier[16];
 					char buildDateTime[16];
 					uint32_t flashId;
 					uint16_t features;
@@ -272,7 +272,7 @@ static void cpsHandleReadCommand(void)
 #endif
 				// 10 is reserved for DM1701 with RGB panel
 
-				snprintf(radioInfo.gitRevision, sizeof(radioInfo.gitRevision), "%s", "RUSSIAN");
+				snprintf(radioInfo.identifier, sizeof(radioInfo.identifier), "%s", "RUSSIAN");
 				snprintf(radioInfo.buildDateTime, sizeof(radioInfo.buildDateTime), "%04d%02d%02d", BUILD_YEAR, BUILD_MONTH, BUILD_DAY);
 				radioInfo.flashId = flashChipPartNumber;
 				// Features bitfield (16 bits)
