@@ -96,14 +96,14 @@ static const MIC_BUTTON_t MIC_BUTTONS[] =
 static const char keypadAlphaMap[11][31] = {
 		"0 ",
 		"1.!,@-:?()~/[]#<>=*+$%'`&|_^{}",
-		"abc2ABC",
-		"def3DEF",
-		"ghi4GHI",
-		"jkl5JKL",
-		"mno6MNO",
-		"pqrs7PQRS",
-		"tuv8TUV",
-		"wxyz9WXYZ",
+		"абвгАБВГ2abcABC",
+		"дежзДЕЖЗ3defDEF",
+		"ийклИЙКЛ4ghiGHI",
+		"мнопМНОП5jklJKL",
+		"рстуРСТУ6mnoMNO",
+		"фхцчФХЦЧ7pqrsPQRS",
+        "шщъыШЩЪЫ8tuvTUV",
+		"ьэюяЬЭЮЯ9wxyzWXYZ",
 		"*"
 };
 
