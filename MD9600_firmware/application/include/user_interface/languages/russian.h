@@ -1,5 +1,5 @@
-#ifndef USER_INTERFACE_LANGUAGES_CATALAN_H_
-#define USER_INTERFACE_LANGUAGES_CATALAN_H_
+#ifndef USER_INTERFACE_LANGUAGES_RUSSIAN_H_
+#define USER_INTERFACE_LANGUAGES_RUSSIAN_H_
 /********************************************************************
  *
  * VERY IMPORTANT.
@@ -11,7 +11,7 @@
 #if defined(PLATFORM_GD77) || defined(PLATFORM_GD77S) || defined(PLATFORM_DM1801) || defined(PLATFORM_DM1801A) || defined(PLATFORM_RD5R)
 __attribute__((section(".upper_text")))
 #endif
-const stringsTable_t catalanLanguage =
+const stringsTable_t russianLanguage =
 {
 .magicNumber                            = { LANGUAGE_TAG_MAGIC_NUMBER, LANGUAGE_TAG_VERSION },
 .LANGUAGE_NAME 				= "Русский", // MaxLen: 16
@@ -164,7 +164,7 @@ const stringsTable_t catalanLanguage =
 .temperature				= "Температура", // MaxLen: 16 (with ':' + .celcius or .fahrenheit)
 .celcius				= "°C",
 .seconds				= "сек.",
-.radio_info				= "О рации",
+.radio_info				= "Дата и время",
 .temperature_calibration		= "Кал. темп.",
 .pin_code				= "Пин-код",
 .please_confirm				= "Подтвердите", // MaxLen: 15
@@ -199,7 +199,7 @@ const stringsTable_t catalanLanguage =
 .inHHMMSS				= "Через",
 .predicting				= "Вычисление",
 .maximum				= "Макс",
-.satellite_short		= "Спутн.",
+.satellite_short		= "Спутники",
 .local					= "местн.",
 .UTC					= "UTC",
 .symbols				= "NSEW", // symbols: N,S,E,W
@@ -213,7 +213,7 @@ const stringsTable_t catalanLanguage =
 .end_only				= "в конце",
 .dmr_crc				= "DMR CRC",
 .eco					= "Экономайзер",
-.safe_power_on				= "Безоп. выкл.", // MaxLen: 16 (with ':' + .on or .off)
+.safe_power_on				= "Безоп. вкл.", // MaxLen: 16 (with ':' + .on or .off)
 .auto_power_off				= "Авто выкл.", // MaxLen: 16 (with ':' + 30/60/90/120/180 or .no)
 .apo_with_rf				= "Сброс по Rx", // MaxLen: 16 (with ':' + .yes or .no or .n_a)
 .brightness_night				= "Ночн. ярк.", // MaxLen: 16 (with : + 0..100 + %)
@@ -269,7 +269,7 @@ const stringsTable_t catalanLanguage =
 .theme_colour_picker_green		= "Зеленый", // MaxLen 16 (with ':' + 3 digits value)
 .theme_colour_picker_blue		= "Синий", // MaxLen 16 (with ':' + 3 digits value)
 .volume					= "Громк.", // MaxLen: 8
-.distance_sort				= "Сорт. по расст.", // MaxLen 16 (with ':' + .on or .off)
+.distance_sort				= "По расст.", // MaxLen 16 (with ':' + .on or .off)
 .show_distance				= "Расстояние", // MaxLen 16 (with ':' + .on or .off)
 .aprs_options				= "APRS", // MaxLen 16
 .aprs_smart				= "умн.", // MaxLen 16 (with ':' + .mode)
@@ -288,6 +288,7 @@ const stringsTable_t catalanLanguage =
 .auto_lock				= "Автоблок.", // MaxLen 16 (with ':' + .off or 0.5..15 (.5 step) + 'min')
 .trackball				= "Трекбол", // MaxLen 16 (with ':' + .on or .off)
 .dmr_force_dmo				= "Принуд. DMO", // MaxLen 16 (with ':' + .n_a or .on or .off)
+.dmrid                    = "Ввод DMR ID",
 };
 /********************************************************************
  *

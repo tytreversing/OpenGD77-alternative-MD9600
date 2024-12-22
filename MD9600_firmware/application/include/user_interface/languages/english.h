@@ -315,12 +315,13 @@ const stringsTable_t englishLanguage =
 .aprs_fast_rate				= "Fast Rate", // MaxLen 16 (with ':' + 10..180 + 's')
 .aprs_low_speed				= "Low Speed", // MaxLen 16 (with ':' + 2..30 + 'km/h')
 .aprs_high_speed			= "Hi Speed", // MaxLen 16 (with ':' + 2..90 + 'km/h')
-.aprs_turn_angle			= "T. Angle", // MaxLen 16 (with ':' + 5..90 + '�')
-.aprs_turn_slope			= "T. Slope", // MaxLen 16 (with ':' + 1..255 + '�/v')
+.aprs_turn_angle			= "T. Angle", // MaxLen 16 (with ':' + 5..90 + '???')
+.aprs_turn_slope			= "T. Slope", // MaxLen 16 (with ':' + 1..255 + '???/v')
 .aprs_turn_time				= "T. Time", // MaxLen 16 (with ':' + 5..180 + 's')
 .auto_lock				= "Auto lock", // MaxLen 16 (with ':' + .off or 0.5..15 (.5 step) + 'min')
 .trackball				= "Trackball", // MaxLen 16 (with ':' + .on or .off)
 .dmr_force_dmo				= "Force DMO", // MaxLen 16 (with ':' + .n_a or .on or .off)
+.dmrid                    = "Set DMR ID",
 };
 /********************************************************************
  *
