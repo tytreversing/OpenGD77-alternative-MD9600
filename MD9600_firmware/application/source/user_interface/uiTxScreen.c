@@ -665,7 +665,7 @@ void menuTxScreenHandleTxTermination(uiEvent_t *ev, txTerminationReason_t reason
 		case TXSTOP_OUT_OF_BAND:
 #if !defined(PLATFORM_GD77S)
 			displayThemeApply(THEME_ITEM_FG_ERROR_NOTIFICATION, THEME_ITEM_BG_NOTIFICATION);
-			displayPrintCentered(4 + (DISPLAY_V_EXTRA_PIXELS / 4), currentLanguage->error, FONT_SIZE_4);
+			displayPrintCentered(4 + (DISPLAY_V_EXTRA_PIXELS / 4), currentLanguage->error, FONT_SIZE_3);
 #endif
 
 			voicePromptsAppendLanguageString(currentLanguage->error);

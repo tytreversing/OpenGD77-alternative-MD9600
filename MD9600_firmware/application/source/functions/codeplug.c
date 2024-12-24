@@ -249,25 +249,32 @@ uint16_t codeplugIntToCSS(uint16_t tone)
 	return ((tone == 0x0) ? CODEPLUG_CSS_TONE_NONE : tone);
 }
 
+
 void codeplugUtilConvertBufToString(char *codeplugBuf, char *outBuf, int len)
 {
-
-	for(int i = 0; i < len; i++)
+	if (codeplugBuf[0] !=0)
 	{
-		if (codeplugBuf[i] == 0xff)
+		for(int i = 0; i < len; i++)
 		{
-			codeplugBuf[i] = 0;
+			if (codeplugBuf[i] == 0xff)
+			{
+				codeplugBuf[i] = 0;
+			}
+			if (codeplugBuf[i] == 0x7f) // Ð·Ð°Ð¼ÐµÐ½Ð° Ð¿Ð¾Ð´Ð¼ÐµÐ½Ð½Ð¾Ð³Ð¾ ÑÐ¸Ð¼Ð²Ð¾Ð»Ð° Ð½Ð° "Ñ"
+				{
+				outBuf[i] = 0xff;
+				}
+			else
+				{
+				outBuf[i] = codeplugBuf[i];
+				}
 		}
-		if (codeplugBuf[i] == 0x7f) // çàìåíà ïîäìåííîãî ñèìâîëà íà "ÿ"
-			{
-			   outBuf[i] = 0xff;
-			}
-		else
-			{
-			   outBuf[i] = codeplugBuf[i];
-			}
+		outBuf[len] = 0;
 	}
-	outBuf[len] = 0;
+	else
+	{
+		outBuf[0] = 0;
+	}
 }
 
 void codeplugUtilConvertStringToBuf(char *inBuf, char *outBuf, int len)
@@ -279,7 +286,7 @@ void codeplugUtilConvertStringToBuf(char *inBuf, char *outBuf, int len)
 		{
 			break;
 		}
-		if (inBuf[i] == 0xff) //çàìåíà "ÿ" íà ïîäìåííûé ñèìâîë
+		if (inBuf[i] == 0xff) //Ð·Ð°Ð¼ÐµÐ½Ð° "Ñ" Ð½Ð° Ð¿Ð¾Ð´Ð¼ÐµÐ½Ð½Ñ‹Ð¹ ÑÐ¸Ð¼Ð²Ð¾Ð»
 			outBuf[i] = 0x7f;
 		else outBuf[i] = inBuf[i];
 	}

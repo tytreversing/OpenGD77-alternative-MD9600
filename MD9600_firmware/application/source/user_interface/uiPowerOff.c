@@ -60,7 +60,6 @@ static void updateScreen(void)
 
 	displayThemeApply(THEME_ITEM_FG_WARNING_NOTIFICATION, THEME_ITEM_BG_NOTIFICATION);
 	displayPrintCentered(((DISPLAY_SIZE_Y / 3) - (FONT_SIZE_3_HEIGHT / 2)), currentLanguage->power_off, FONT_SIZE_3);
-	displayPrintCentered((((DISPLAY_SIZE_Y / 3) * 2) - (FONT_SIZE_3_HEIGHT / 2)), "73", FONT_SIZE_3);
 	displayThemeResetToDefault();
 	displayRender();
 }
