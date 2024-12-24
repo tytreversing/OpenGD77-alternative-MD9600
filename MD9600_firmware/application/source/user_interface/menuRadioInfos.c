@@ -39,6 +39,8 @@
 #endif
 
 
+
+
 static const uint8_t daysPerMonth[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
 
 static char keypadInputDigits[17]; // HHMMSS + terminator (Displayed as HH:MM:SS, or YYYY:MM:DD or LAT.LATIT,LON.LONGI)
@@ -54,13 +56,6 @@ bool latLonIsWesternHemisphere = false;
 
 
 
-#if defined(PLATFORM_MD9600) || defined(PLATFORM_MDUV380) || defined(PLATFORM_MD380) || defined(PLATFORM_RT84_DM1701) || defined(PLATFORM_MD2017)
-__attribute__((section(".ccmram")))
-#else
-__attribute__((section(".data.$RAM2")))
-#endif
-
-
 
 static int displayMode = RADIO_INFOS_CURRENT_TIME;
 
@@ -69,11 +64,6 @@ static void updateScreen(uiEvent_t *ev, bool forceRedraw);
 static void handleEvent(uiEvent_t *ev);
 static void updateVoicePrompts(bool spellIt, bool firstRun);
 static uint32_t menuRadioInfosNextUpdateTime = 0;
-
-
-
-
-
 
 
 
@@ -167,7 +157,7 @@ static void updateScreen(uiEvent_t *ev, bool forceRedraw)
 
 	switch (displayMode)
 	{
-		
+
 		case RADIO_INFOS_CURRENT_TIME:
 			{
 				displayClearBuf();
@@ -304,13 +294,7 @@ static void updateScreen(uiEvent_t *ev, bool forceRedraw)
 					displayThemeApply(THEME_ITEM_FG_TEXT_INPUT, THEME_ITEM_BG);
 				}
 
-				displayPrintCentered((DISPLAY_SIZE_Y / 2) - 8, buffer,
-#if defined(PLATFORM_MD380) || defined(PLATFORM_MDUV380) || defined(PLATFORM_RT84_DM1701) || defined(PLATFORM_MD2017)
-						FONT_SIZE_3
-#else
-						FONT_SIZE_1
-#endif
-				);
+				displayPrintCentered((DISPLAY_SIZE_Y / 2) - 8, buffer,FONT_SIZE_1);
 				displayPrintCentered(((DISPLAY_SIZE_Y / 4) * 3) - 8 , maidenheadBuf, FONT_SIZE_3);
 			}
 			renderArrowOnly = false;
@@ -320,6 +304,7 @@ static void updateScreen(uiEvent_t *ev, bool forceRedraw)
 			displayFillTriangle(63 + DISPLAY_H_OFFSET, (DISPLAY_SIZE_Y - 1), 59 + DISPLAY_H_OFFSET, (DISPLAY_SIZE_Y - 3), 67 + DISPLAY_H_OFFSET, (DISPLAY_SIZE_Y - 3), blink);
 			displayFillTriangle(63 + DISPLAY_H_OFFSET, (DISPLAY_SIZE_Y - 5), 59 + DISPLAY_H_OFFSET, (DISPLAY_SIZE_Y - 3), 67 + DISPLAY_H_OFFSET, (DISPLAY_SIZE_Y - 3), blink);
 			break;
+
 
 	}
 
@@ -358,11 +343,8 @@ static void handleEvent(uiEvent_t *ev)
 	}
 
 	if ((KEYCHECK_SHORTUP(ev->keys, KEY_GREEN) && BUTTONCHECK_DOWN(ev, BUTTON_SK2))
-#if defined(PLATFORM_MD9600)
 			// Let the operator to set the GPS power status to GPS_MODE_ON only, on longpress GREEN (A/B mic button also).
-			|| (KEYCHECK_LONGDOWN(ev->keys, KEY_GREEN) && (nonVolatileSettings.gps > GPS_NOT_DETECTED) && (nonVolatileSettings.gps < GPS_MODE_ON))
-#endif
-	)
+			|| (KEYCHECK_LONGDOWN(ev->keys, KEY_GREEN) && (nonVolatileSettings.gps > GPS_NOT_DETECTED) && (nonVolatileSettings.gps < GPS_MODE_ON)))
 	{
 		if (displayMode == RADIO_INFOS_LOCATION)
 		{
@@ -573,16 +555,17 @@ static void handleEvent(uiEvent_t *ev)
 					return;
 				}
 
-
+				if (displayMode > RADIO_INFOS_CURRENT_TIME)
+				{
+					displayMode--;
+					updateScreen(ev, true);
+					updateVoicePrompts(true, false);
+				}
+				break;
 
 			case KEY_LEFT:
-#if defined(PLATFORM_RT84_DM1701) || defined(PLATFORM_MD2017)
-			case KEY_ROTARY_DECREMENT:
-#endif
 				switch(displayMode)
 				{
-					
-
 					case RADIO_INFOS_CURRENT_TIME:
 					case RADIO_INFOS_DATE:
 					case RADIO_INFOS_LOCATION:
@@ -599,10 +582,7 @@ static void handleEvent(uiEvent_t *ev)
 				break;
 
 			case KEY_RIGHT:
-#if defined(PLATFORM_RT84_DM1701) || defined(PLATFORM_MD2017)
-			case KEY_ROTARY_INCREMENT:
-#endif
-		
+				break;
 
 			default:
 				if (BUTTONCHECK_DOWN(ev, BUTTON_SK2) == 0) // Filtering for QuickKey
@@ -853,7 +833,6 @@ void menuRadioInfosInit(void)
 }
 
 
-
 static void updateVoicePrompts(bool spellIt, bool firstRun)
 {
 	if (nonVolatileSettings.audioPromptMode >= AUDIO_PROMPT_MODE_VOICE_THRESHOLD)
@@ -872,7 +851,7 @@ static void updateVoicePrompts(bool spellIt, bool firstRun)
 
 		switch (displayMode)
 		{
-			
+
 			case RADIO_INFOS_CURRENT_TIME:
 				voicePromptsAppendLanguageString(currentLanguage->time);
 				if (!(nonVolatileSettings.timezone & 0x80))
@@ -914,4 +893,3 @@ static void updateVoicePrompts(bool spellIt, bool firstRun)
 		}
 	}
 }
-
