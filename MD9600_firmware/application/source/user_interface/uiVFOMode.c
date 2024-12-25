@@ -2537,6 +2537,9 @@ static void updateQuickMenuScreen(bool isFirstRun)
 					}
 					else
 					{
+						if (currentLanguage->LANGUAGE_NAME[0] == 'Р')
+						snprintf(rightSideVar, SCREEN_LINE_BUFFER_SIZE, "%s", DMR_DESTINATION_FILTER_LEVELS_RUS[uiDataGlobal.QuickMenu.tmpDmrDestinationFilterLevel - 1]);
+					    else							
 						snprintf(rightSideVar, SCREEN_LINE_BUFFER_SIZE, "%s", DMR_DESTINATION_FILTER_LEVELS[uiDataGlobal.QuickMenu.tmpDmrDestinationFilterLevel - 1]);
 					}
 					break;

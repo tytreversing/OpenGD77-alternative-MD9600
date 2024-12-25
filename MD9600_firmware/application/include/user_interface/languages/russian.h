@@ -21,7 +21,7 @@ const stringsTable_t russianLanguage =
 .rssi					= "RSSI", // MaxLen: 16
 .battery				= "Аккумулятор", // MaxLen: 16
 .contacts				= "Контакты", // MaxLen: 16
-.last_heard				= "Посл. связь", // MaxLen: 16
+.last_heard				= "Последняя связь", // MaxLen: 16
 .firmware_info				= "О прошивке", // MaxLen: 16
 .options				= "Настройки", // MaxLen: 16
 .display_options			= "Экран", // MaxLen: 16
@@ -289,6 +289,10 @@ const stringsTable_t russianLanguage =
 .trackball				= "Трекбол", // MaxLen 16 (with ':' + .on or .off)
 .dmr_force_dmo				= "Принуд. DMO", // MaxLen 16 (with ':' + .n_a or .on or .off)
 .dmrid                    = "Ввод DMR ID",
+.dmridtext = "",
+.aliastext = "",
+.vfomenu = " Меню        Каналы ",
+.chmenu = " Меню           VFO ",
 };
 /********************************************************************
  *
