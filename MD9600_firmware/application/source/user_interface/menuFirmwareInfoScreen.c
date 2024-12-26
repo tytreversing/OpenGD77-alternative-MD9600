@@ -46,7 +46,7 @@ enum
 
 static const char *creditTexts[] =
 {
-		"OpenGD77 RUS:", "Р”РјРёС‚СЂРёР№ Р’РёС€РЅРµРІ", "https://opengd77rus.ru", "", "РЁСЂРёС„С‚ Terminus:", "Р”РёРјРёС‚Р°СЂ Р–РµРєРѕРІ", "",  "OpenGD77:", "Roger VK3KYY", "Daniel F1RMB", "Kai DG4KLU", "Colin G4EML", "Alex DL4LEX", "Jason VK7ZJA (SK)"
+		"OpenGD77 RUS:", "Дмитрий Вишнев", "https://opengd77rus.ru", "", "Шрифт Terminus:", "Димитар Жеков", "",  "OpenGD77:", "Roger VK3KYY", "Daniel F1RMB", "Kai DG4KLU", "Colin G4EML", "Alex DL4LEX", "Jason VK7ZJA (SK)"
 
 };
 static const int maxCredits = (sizeof(creditTexts) / sizeof(creditTexts[0]));
