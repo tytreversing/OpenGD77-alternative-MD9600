@@ -811,12 +811,7 @@ void uiChannelModeUpdateScreen(int txTimeSecs)
 						}
 						else
 						{
-							if (currentLanguage->LANGUAGE_NAME[0] == 'Р')
-								snprintf(nameBuf, NAME_BUFFER_LEN, "%s | Канал:%d",(CODEPLUG_ZONE_IS_ALLCHANNELS(currentZone) ?
-										currentLanguage->all_channels : currentZoneName),
-										(codeplugGetLastUsedChannelInCurrentZone() + (CODEPLUG_ZONE_IS_ALLCHANNELS(currentZone) ? 0 : 1)));
-							else
-								snprintf(nameBuf, NAME_BUFFER_LEN, "%s | Ch:%d",(CODEPLUG_ZONE_IS_ALLCHANNELS(currentZone) ?
+								snprintf(nameBuf, NAME_BUFFER_LEN, "%s | #%d",(CODEPLUG_ZONE_IS_ALLCHANNELS(currentZone) ?
 								currentLanguage->all_channels : currentZoneName),
 								(codeplugGetLastUsedChannelInCurrentZone() + (CODEPLUG_ZONE_IS_ALLCHANNELS(currentZone) ? 0 : 1)));
 						}

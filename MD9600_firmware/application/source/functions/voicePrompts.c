@@ -343,13 +343,7 @@ void voicePromptsAppendLanguageString(const char *languageStringAdd)
 		return;
 	}
 
-	voicePromptsAppendPrompt(NUM_VOICE_PROMPTS +
-			((languageStringAdd - currentLanguage->LANGUAGE_NAME)
-#if ! defined(HAS_COLOURS)
-					- ((languageStringAdd >= currentLanguage->theme_chooser) ?
-							((currentLanguage->theme_colour_picker_blue - currentLanguage->theme_chooser) + LANGUAGE_TEXTS_LENGTH) : 0)
-#endif
-			) / LANGUAGE_TEXTS_LENGTH);
+	voicePromptsAppendPrompt(NUM_VOICE_PROMPTS + ((languageStringAdd - currentLanguage->LANGUAGE_NAME)) / LANGUAGE_TEXTS_LENGTH);
 }
 
 void voicePromptsPlay(void)
