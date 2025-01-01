@@ -1392,11 +1392,7 @@ static void displaySplitOrSpanText(uint8_t y, char *text)
 			}
 			else // One line of 21 chars max
 			{
-				displayPrintCentered(y
-#if ! defined(PLATFORM_RD5R)
-						+ 4
-#endif
-						, text, FONT_SIZE_1);
+				displayPrintCentered(y + 4, text, FONT_SIZE_1);
 			}
 		}
 	}
@@ -1642,21 +1638,17 @@ void uiUtilityDisplayInformation(const char *str, displayInformation_t line, int
 					if (distanceEnabled)
 					{
 						displayThemeApply(THEME_ITEM_FG_DECORATION, THEME_ITEM_BG);
-#if defined(HAS_COLOURS)
-						displayDrawRoundRect(5, (DISPLAY_Y_POS_ZONE - 3), (DISPLAY_SIZE_X - 10), (8 + 2 + 3), 3, true);
-#else
+
 						displayFillRect(0, (DISPLAY_Y_POS_ZONE - 2), DISPLAY_SIZE_X, (8 + 2 + 2), false);
-#endif
+
 					}
 
 					displayThemeApply(THEME_ITEM_FG_ZONE_NAME, THEME_ITEM_BG);
 				}
 
-#if defined(HAS_COLOURS)
-				displayPrintCentered(DISPLAY_Y_POS_ZONE, str, FONT_SIZE_1);
-#else
+
 				displayPrintCore(0, DISPLAY_Y_POS_ZONE, str, FONT_SIZE_1, TEXT_ALIGN_CENTER, (displayingZone && distanceEnabled));
-#endif
+
 			}
 			break;
 	}
@@ -1813,14 +1805,10 @@ void uiUtilityRenderHeader(bool isVFODualWatchScanning, bool isVFOSweepScanning)
 	if (settingsIsOptionBitSet(BIT_BATTERY_VOLTAGE_IN_HEADER))
 	{
 		getBatteryVoltage(&volts, &mvolts);
-
-		// It's not possible to have 2 digits voltage on HTs
-#if defined(PLATFORM_MD9600)
 		if (volts < 10)
 		{
 			itemOffset = 2;
 		}
-#endif
 	}
 	else
 	{
@@ -1828,11 +1816,7 @@ void uiUtilityRenderHeader(bool isVFODualWatchScanning, bool isVFOSweepScanning)
 
 		if (batteryPercentage < 100)
 		{
-#if defined(PLATFORM_MD9600)
 			itemOffset = 2;
-#else
-			itemOffset = 1;
-#endif
 		}
 	}
 
@@ -1859,9 +1843,6 @@ void uiUtilityRenderHeader(bool isVFODualWatchScanning, bool isVFOSweepScanning)
 	}
 
 	displayThemeApply(THEME_ITEM_FG_HEADER_TEXT, THEME_ITEM_BG_HEADER_TEXT);
-#if defined(HAS_COLOURS)
-	displayFillRect(0, 0, DISPLAY_SIZE_X, DISPLAY_Y_POS_BAR, true);
-#endif
 
 	if (scanIsActive || batteryIsLow)
 	{
@@ -2113,22 +2094,47 @@ void uiUtilityRedrawHeaderOnly(bool isVFODualWatchScanning, bool isVFOSweepScann
 	displayRenderRows(0, 2);
 }
 
-static void drawHeaderBar(int *barWidth, int16_t barHeight)
-{
-	*barWidth = CLAMP(*barWidth, 0, DISPLAY_SIZE_X);
+DECLARE_SMETER_ARRAY(rssiMeter, (DISPLAY_SIZE_X - 1));
 
+static void drawHeaderBar(int *barWidth, int16_t barHeight, bool isRSSI)
+{
+	*barWidth = CLAMP(*barWidth, 0, DISPLAY_SIZE_X - 2);
+	int xPos;
+	int currentMode = trxGetMode();
 	displayThemeApply(THEME_ITEM_FG_RSSI_BAR, THEME_ITEM_BG_HEADER_TEXT);
+	if (isRSSI)
+	{
+		for (uint8_t i = 0; i < 10; i++)
+    	{
+    		if ((i <= 9) || (currentMode == RADIO_MODE_DIGITAL))
+    		{
+    			xPos = rssiMeter[i];
+    		}
+    		else
+    		{
+    			xPos = ((rssiMeter[i] - rssiMeter[9]) / STRONG_SIGNAL_RESCALE) + rssiMeter[9];
+    		}
+    		xPos *= 2;
+    		displayDrawFastVLine(xPos, (DISPLAY_Y_POS_BAR + 4), ((i % 2) ? 3 : 1), ((i < 10) ? true : false));
+    		/*if ((i % 2) && (i < 10))
+    		{
+    			char buf[2];
+    			sprintf(buf, "%d", i);
+    			displayPrintAt(((((BAR_X - 2) + xPos) - 2) - 1), DISPLAY_Y_POS_RSSI + 15, buf, FONT_SIZE_2);
+    		}*/
+    	}
+	}
 	if (*barWidth)
 	{
-		displayFillRect(0, DISPLAY_Y_POS_BAR, *barWidth, barHeight, false);
+		displayFillRect(1, DISPLAY_Y_POS_BAR + 1, *barWidth, barHeight - 1, false);
 	}
 
 	// Clear the end of the bar area, if needed
 	if (*barWidth < DISPLAY_SIZE_X)
 	{
-		displayFillRect(*barWidth, DISPLAY_Y_POS_BAR, (DISPLAY_SIZE_X - *barWidth), barHeight, true);
+		displayFillRect(*barWidth, DISPLAY_Y_POS_BAR + 1, (DISPLAY_SIZE_X - *barWidth), barHeight - 1, true);
 	}
-
+	displayDrawRect(0, DISPLAY_Y_POS_BAR, DISPLAY_SIZE_X, barHeight, true);
 	displayThemeResetToDefault();
 }
 
@@ -2154,41 +2160,9 @@ void uiUtilityDrawRSSIBarGraph(void)
 
 	int barWidth = ((rssi * rssiMeterHeaderBarNumUnits) / rssiMeterHeaderBarDivider);
 
-	drawHeaderBar(&barWidth, 4);
+	drawHeaderBar(&barWidth, 4, true);
 
-#if defined(HAS_COLOURS)
-	int xPos = 0;
 
-	if (rssi > SMETER_S9)
-	{
-		xPos = (rssiMeterHeaderBar[9] * 2);
-
-		if (barWidth > xPos)
-		{
-			displayThemeApply(THEME_ITEM_FG_RSSI_BAR_S9P, THEME_ITEM_BG_HEADER_TEXT);
-			displayFillRect(xPos, DISPLAY_Y_POS_BAR, (barWidth - xPos), 4, false);
-			displayThemeResetToDefault();
-		}
-	}
-#endif
-
-#if 0 // Commented for now, maybe an option later.
-	int currentMode = trxGetMode();
-	for (uint8_t i = 1; ((i < 10) && (xPos <= barWidth)); i += 2)
-	{
-		if ((i <= 9) || (currentMode == RADIO_MODE_DIGITAL))
-		{
-			xPos = rssiMeterHeaderBar[i];
-		}
-		else
-		{
-			xPos = ((rssiMeterHeaderBar[i] - rssiMeterHeaderBar[9]) / STRONG_SIGNAL_RESCALE) + rssiMeterHeaderBar[9];
-		}
-		xPos *= 2;
-
-		ucDrawFastVLine(xPos, (DISPLAY_Y_POS_BAR + 1), 2, false);
-	}
-#endif
 }
 
 void uiUtilityDrawFMMicLevelBarGraph(void)
@@ -2213,13 +2187,13 @@ void uiUtilityDrawFMMicLevelBarGraph(void)
 #endif
 			, DISPLAY_SIZE_X);
 
-	drawHeaderBar(&barWidth, 4);
+	drawHeaderBar(&barWidth, 4, false);
 }
 
 void uiUtilityDrawDMRMicLevelBarGraph(void)
 {
 	int barWidth = ((uint16_t)(sqrt(micAudioSamplesTotal) * 1.5));
-	drawHeaderBar(&barWidth, 4);
+	drawHeaderBar(&barWidth, 4, false);
 }
 
 void setOverrideTGorPC(uint32_t tgOrPc, bool privateCall)

@@ -647,18 +647,16 @@ void menuSystemLanguageHasChanged(void)
 
 const menuItemNewData_t mainMenuItems[] =
 {
-	{ 274, MENU_DMRID           },  //номер строки в языковом файле -50
+	//{ 274, MENU_DMRID           },  //номер строки в языковом файле -50
 	{   3, MENU_ZONE_LIST       },
 	{   6, MENU_CONTACTS_MENU   },
 	{  12, MENU_CHANNEL_DETAILS },
 	{   4, MENU_RSSI_SCREEN     },
-	{   8, MENU_FIRMWARE_INFO   },
 	{   9, MENU_OPTIONS         },
 	{   7, MENU_LAST_HEARD      },
 	{ 173, MENU_SATELLITE       },
-#if defined(HAS_GPS)
-	{ 195, MENU_GPS		        },
-#endif
+	{   8, MENU_FIRMWARE_INFO   },
+	//{ 195, MENU_GPS		        },
 };
 
 const menuItemsList_t menuDataMainMenu =
