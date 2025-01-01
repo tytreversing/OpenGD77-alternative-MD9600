@@ -46,7 +46,7 @@ enum
 
 static const char *creditTexts[] =
 {
-		"OpenGD77 RUS:", "Дмитрий Вишнев", "opengd77rus.ru", "", "Шрифт Terminus:", "Димитар Жеков", "",  "OpenGD77:", "Roger VK3KYY", "Daniel F1RMB", "Kai DG4KLU", "Colin G4EML", "Alex DL4LEX", "Jason VK7ZJA (SK)"
+		"OpenGD77 RUS:", "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ", "opengd77rus.ru", "", "пїЅпїЅпїЅпїЅпїЅ Terminus:", "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ", "",  "OpenGD77:", "Roger VK3KYY", "Daniel F1RMB", "Kai DG4KLU", "Colin G4EML", "Alex DL4LEX", "Jason VK7ZJA (SK)"
 
 };
 static const int maxCredits = (sizeof(creditTexts) / sizeof(creditTexts[0]));
@@ -209,7 +209,6 @@ static void displayBuildDetails(bool playVP)
 		voicePromptsAppendLanguageString(radioModel);
 		voicePromptsAppendLanguageString(currentLanguage->built);
 		voicePromptsAppendString(dateTimeBuf);
-		voicePromptsAppendLanguageString(currentLanguage->gitCommit);
 		voicePromptsAppendString(versionBuf);
 #if defined(PLATFORM_MD9600) || defined(PLATFORM_MDUV380) || defined(PLATFORM_MD380) || defined(PLATFORM_RT84_DM1701) || defined(PLATFORM_MD2017)
 		voicePromptsAppendString(cpuTypeBuf);

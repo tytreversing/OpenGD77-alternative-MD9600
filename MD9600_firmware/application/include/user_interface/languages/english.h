@@ -180,7 +180,6 @@ const stringsTable_t englishLanguage =
 .talkaround 				= "Talkaround", // Maxlen 16 (with ':' + .on , .off or .n_a)
 .APRS 					= "APRS", // Maxlen 16 (with : + .transmitTalkerAliasTS1 or transmitTalkerAliasTS2)
 .no_keys 				= "No Keys", // Maxlen 16 (with : + audio_prompt)
-.gitCommit				= "Git commit",
 .voice_prompt_level_2			= "Voice L2", // Maxlen 16 (with : + audio_prompt)
 .voice_prompt_level_3			= "Voice L3", // Maxlen 16 (with : + audio_prompt)
 .dmr_filter				= "DMR Filter",// MaxLen: 12 (with ':' + settings: "TG" or "Ct" or "TGL")
