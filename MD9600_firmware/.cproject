@@ -70,10 +70,10 @@
 									<listOptionValue builtIn="false" value="../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.otherflags.1173829220" name="Other flags" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.otherflags" useByScannerDiscovery="true" valueType="stringList">
+									<listOptionValue builtIn="false" value="-finput-charset=UTF-8 -fexec-charset=cp1251"/>
 									<listOptionValue builtIn="false" value="-Wno-format"/>
 									<listOptionValue builtIn="false" value="-Wno-format-truncation"/>
 									<listOptionValue builtIn="false" value="-Wno-stringop-overflow"/>
-									<listOptionValue builtIn="false" value="-finput-charset=UTF-8 -fexec-charset=cp1251"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.1078252815" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>
@@ -218,10 +218,10 @@
 									<listOptionValue builtIn="false" value="../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.otherflags.1360992800" name="Other flags" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.otherflags" useByScannerDiscovery="true" valueType="stringList">
+									<listOptionValue builtIn="false" value="-finput-charset=UTF-8 -fexec-charset=cp1251"/>
 									<listOptionValue builtIn="false" value="-Wno-format"/>
 									<listOptionValue builtIn="false" value="-Wno-format-truncation"/>
 									<listOptionValue builtIn="false" value="-Wno-stringop-overflow"/>
-									<listOptionValue builtIn="false" value="-finput-charset=UTF-8 -fexec-charset=cp1251"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.1452773350" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>
@@ -373,10 +373,10 @@
 									<listOptionValue builtIn="false" value="../"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.otherflags.1471434626" name="Other flags" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.otherflags" useByScannerDiscovery="true" valueType="stringList">
+									<listOptionValue builtIn="false" value="-finput-charset=UTF-8 -fexec-charset=cp1251"/>
 									<listOptionValue builtIn="false" value="-Wno-format"/>
 									<listOptionValue builtIn="false" value="-Wno-format-truncation"/>
 									<listOptionValue builtIn="false" value="-Wno-stringop-overflow"/>
-									<listOptionValue builtIn="false" value="-finput-charset=UTF-8 -fexec-charset=cp1251"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.651547375" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>
@@ -521,10 +521,10 @@
 									<listOptionValue builtIn="false" value="../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.otherflags.1981680908" name="Other flags" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.otherflags" useByScannerDiscovery="true" valueType="stringList">
+									<listOptionValue builtIn="false" value="-finput-charset=UTF-8 -fexec-charset=cp1251"/>
 									<listOptionValue builtIn="false" value="-Wno-format"/>
 									<listOptionValue builtIn="false" value="-Wno-format-truncation"/>
 									<listOptionValue builtIn="false" value="-Wno-stringop-overflow"/>
-									<listOptionValue builtIn="false" value="-finput-charset=UTF-8 -fexec-charset=cp1251"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.1123672008" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>
@@ -669,10 +669,10 @@
 									<listOptionValue builtIn="false" value="../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.otherflags.1300516007" name="Other flags" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.otherflags" useByScannerDiscovery="true" valueType="stringList">
+									<listOptionValue builtIn="false" value="-finput-charset=UTF-8 -fexec-charset=cp1251"/>
 									<listOptionValue builtIn="false" value="-Wno-format"/>
 									<listOptionValue builtIn="false" value="-Wno-format-truncation"/>
 									<listOptionValue builtIn="false" value="-Wno-stringop-overflow"/>
-									<listOptionValue builtIn="false" value="-finput-charset=UTF-8 -fexec-charset=cp1251"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.1969062701" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>

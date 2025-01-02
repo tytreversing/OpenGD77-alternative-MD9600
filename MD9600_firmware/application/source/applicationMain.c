@@ -360,7 +360,7 @@ void applicationMainTask(void)
 		vTaskDelay(10);			//allow time for this to complete.
 	}
 
-	wasRestoringDefaultsettings = settingsLoadSettings((((buttonsFrontPanelRead() & FRONT_KEY_P3) == FRONT_KEY_P3) && (micButtonsRead() == 0x00)));
+	wasRestoringDefaultsettings = settingsLoadSettings((buttonsFrontPanelRead() & FRONT_KEY_P3) == FRONT_KEY_P3);
 
 	radioPowerOn();
 
@@ -645,7 +645,7 @@ void applicationMainTask(void)
 
 			menuSystemPushNewMenu(MENU_LANGUAGE);// As language menu is now in Options, present the operator with the Language menu after the "Settings updated" message has been displayed.
 
-			snprintf(uiDataGlobal.MessageBox.message, MESSAGEBOX_MESSAGE_LEN_MAX, "%s", "Settings\nUpdated");
+			snprintf(uiDataGlobal.MessageBox.message, MESSAGEBOX_MESSAGE_LEN_MAX, "%s", "Настройки\nсброшены");
 			uiDataGlobal.MessageBox.type = MESSAGEBOX_TYPE_INFO;
 			uiDataGlobal.MessageBox.decoration = MESSAGEBOX_DECORATION_FRAME;
 			uiDataGlobal.MessageBox.buttons =
