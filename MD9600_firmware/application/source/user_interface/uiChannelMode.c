@@ -884,7 +884,12 @@ static void handleEvent(uiEvent_t *ev)
 	handleEventForGD77S(ev);
 	return;
 #else
-
+#if defined (PLATFORM_MD9600)
+	if (KEYCHECK_PRESS(ev->keys, KEY_P3))
+	{
+		soundSetMelody(MELODY_KEY_BEEP);
+	}
+#endif
 	if (uiDataGlobal.Scan.active && (ev->events & KEY_EVENT))
 	{
 		// Key pressed during scanning
@@ -1068,6 +1073,7 @@ static void handleEvent(uiEvent_t *ev)
 	if (ev->events & KEY_EVENT)
 	{
 #if defined(PLATFORM_MD9600)
+
 		if (KEYCHECK_LONGDOWN(ev->keys, KEY_GREEN))
 		{
 			if (uiDataGlobal.Scan.active)
@@ -1429,7 +1435,6 @@ static void handleEvent(uiEvent_t *ev)
 						nextKeyBeepMelody = (int16_t *)MELODY_KEY_BEEP_FIRST_ITEM;
 					}
 
-					// ToDo announce VP for bandwidth perhaps
 					trxSetModeAndBandwidth(RADIO_MODE_ANALOG, (bw25k != 0));
 					soundSetMelody(MELODY_NACK_BEEP);
 					headerRowIsDirty = true;

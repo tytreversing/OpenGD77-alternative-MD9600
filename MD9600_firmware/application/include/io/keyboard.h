@@ -88,6 +88,7 @@
 #define KEY_ROTARY_INCREMENT        8
 #define KEY_FRONT_UP				9
 #define KEY_FRONT_DOWN              10
+#define KEY_P3                      11
 
 #define KEY_GREEN       13
 #define KEY_RED         27

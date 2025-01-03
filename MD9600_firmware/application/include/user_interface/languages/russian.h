@@ -299,6 +299,9 @@ const stringsTable_t russianLanguage =
 .p3button                 = "P3",
 .p3reverse                = "реверс",
 .p3talkaround             = "прямая связь",
+.p3fastcall               = "быстр. канал",
+.p3filter                 = "фильтры",
+
 };
 /********************************************************************
  *

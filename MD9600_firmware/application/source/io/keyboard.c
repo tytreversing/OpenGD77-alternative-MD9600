@@ -385,6 +385,11 @@ void keyboardCheckKeyEvent(keyboardCode_t *keys, int *event, uint16_t frontPanel
 			{
 				keycode |= KEY_STAR;
 			}
+
+			if  ((frontPanelButtons & FRONT_KEY_P3) == FRONT_KEY_P3)
+			{
+				keycode |= KEY_P3;
+			}
 		}
 
 		scancode = keycode;

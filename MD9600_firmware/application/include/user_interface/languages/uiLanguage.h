@@ -338,6 +338,8 @@ typedef struct
    const char p3button[LANGUAGE_TEXTS_LENGTH];
    const char p3reverse[LANGUAGE_TEXTS_LENGTH];
    const char p3talkaround[LANGUAGE_TEXTS_LENGTH];
+   const char p3fastcall[LANGUAGE_TEXTS_LENGTH];
+   const char p3filter[LANGUAGE_TEXTS_LENGTH];
 } stringsTable_t;
 
 #endif // _OPENGD77_UILANGUAGE_H_

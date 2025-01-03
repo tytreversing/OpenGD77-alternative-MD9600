@@ -884,12 +884,17 @@ static void toggleAnalogBandwidth(void)
 		nextKeyBeepMelody = (int16_t *)MELODY_KEY_BEEP_FIRST_ITEM;
 	}
 
-	// ToDo announce VP for bandwidth perhaps
 	trxSetModeAndBandwidth(RADIO_MODE_ANALOG, (bw25k != 0));
 }
 
 static void handleEvent(uiEvent_t *ev)
 {
+#if defined (PLATFORM_MD9600)
+	if (KEYCHECK_PRESS(ev->keys, KEY_P3))
+	{
+		soundSetMelody(MELODY_KEY_BEEP);
+	}
+#endif
 	if (uiDataGlobal.Scan.active && (ev->events & KEY_EVENT))
 	{
 		if (BUTTONCHECK_DOWN(ev, BUTTON_SK2) == 0)

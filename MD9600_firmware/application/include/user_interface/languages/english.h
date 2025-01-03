@@ -332,6 +332,8 @@ const stringsTable_t englishLanguage =
 .p3button = "P3 Mode",
 .p3reverse = "Reverse",
 .p3talkaround = "Talkaround",
+.p3fastcall               = "fast channel",
+.p3filter                 = "filters",
 };
 /********************************************************************
  *

@@ -178,6 +178,12 @@ static void updateScreen(bool isFirstRun)
 			    	case P3_MODE_TALKAROUND:
 			    		rightSideConst = currentLanguage->p3talkaround;
 			    		break;
+			    	case P3_MODE_FASTCALL:
+			    		rightSideConst = currentLanguage->p3fastcall;
+			    		break;
+			    	case P3_MODE_FILTER:
+			    		rightSideConst = currentLanguage->p3filter;
+			    		break;
 			    	default:
 			    		rightSideConst = currentLanguage->off;
 			    		nonVolatileSettings.buttonP3 = P3_MODE_NONE;
@@ -529,10 +535,10 @@ static void handleEvent(uiEvent_t *ev)
 			{
 #if defined(PLATFORM_MD9600)
 			    case GENERAL_OPTIONS_P3_BUTTON:
-			    	if (nonVolatileSettings.buttonP3 < P3_MODE_TALKAROUND)
-			    						{
-			    							settingsIncrement(nonVolatileSettings.buttonP3, 1);
-			    						}
+			    	if (nonVolatileSettings.buttonP3 < P3_MODES_MAX - 1)
+			    	{
+			    		settingsIncrement(nonVolatileSettings.buttonP3, 1);
+			    	}
 			    	break;
 #endif
 				case GENERAL_OPTIONS_MENU_KEYPAD_TIMER_LONG:
