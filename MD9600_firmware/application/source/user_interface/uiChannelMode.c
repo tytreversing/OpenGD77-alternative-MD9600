@@ -873,6 +873,9 @@ void uiChannelModeUpdateScreen(int txTimeSecs)
 	}
 
 	uiDataGlobal.displayQSOState = QSO_DISPLAY_IDLE;
+#if defined(PLATFORM_MD9600)
+	displaySetContrast(nonVolatileSettings.displayContrast);
+#endif
 }
 
 static void handleEvent(uiEvent_t *ev)
@@ -2025,6 +2028,9 @@ static void updateQuickMenuScreen(bool isFirstRun)
 	}
 
 	displayRender();
+#if defined(PLATFORM_MD9600)
+	displaySetContrast(nonVolatileSettings.displayContrast);
+#endif
 }
 
 static void handleQuickMenuEvent(uiEvent_t *ev)

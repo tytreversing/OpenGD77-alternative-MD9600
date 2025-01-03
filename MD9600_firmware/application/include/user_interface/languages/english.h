@@ -329,6 +329,9 @@ const stringsTable_t englishLanguage =
 .satcom = "SATCOM",
 .ham = "HAM",
 .cps = "by CPS",
+.p3button = "P3 Mode",
+.p3reverse = "Reverse",
+.p3talkaround = "Talkaround",
 };
 /********************************************************************
  *

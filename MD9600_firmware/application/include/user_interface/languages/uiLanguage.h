@@ -335,6 +335,9 @@ typedef struct
    const char satcom[LANGUAGE_TEXTS_LENGTH];
    const char ham[LANGUAGE_TEXTS_LENGTH];
    const char cps[LANGUAGE_TEXTS_LENGTH];
+   const char p3button[LANGUAGE_TEXTS_LENGTH];
+   const char p3reverse[LANGUAGE_TEXTS_LENGTH];
+   const char p3talkaround[LANGUAGE_TEXTS_LENGTH];
 } stringsTable_t;
 
 #endif // _OPENGD77_UILANGUAGE_H_

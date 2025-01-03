@@ -43,7 +43,14 @@ enum SPLIT_CONTACT { SPLIT_CONTACT_SINGLE_LINE_ONLY = 0, SPLIT_CONTACT_ON_TWO_LI
 enum ALLOW_PRIVATE_CALLS_MODE { ALLOW_PRIVATE_CALLS_OFF = 0, ALLOW_PRIVATE_CALLS_ON, ALLOW_PRIVATE_CALLS_PTT };//, ALLOW_PRIVATE_CALLS_AUTO };
 enum BAND_LIMITS_ENUM { BAND_LIMITS_NONE = 0 , BAND_LIMITS_ON_LEGACY_DEFAULT, BAND_LIMITS_FROM_CPS };
 enum INFO_ON_SCREEN { INFO_ON_SCREEN_OFF = 0x00, INFO_ON_SCREEN_TS = 0x01, INFO_ON_SCREEN_PWR = 0x02, INFO_ON_SCREEN_BOTH = 0x03 };
-
+#if defined(PLATFORM_MD9600)
+enum P3_MODE_TYPE
+{
+	P3_MODE_NONE = 0,
+	P3_MODE_REVERSE,
+	P3_MODE_TALKAROUND
+};
+#endif
 #if defined(HAS_GPS)
 typedef enum
 {
@@ -205,7 +212,12 @@ typedef struct
 #if defined(HAS_GPS)
 	uint8_t			gps; // Off / wait for fix / On
 #endif
+#if defined(PLATFORM_MD9600)
+	uint8_t         buttonP3; //Режим работы кнопки P3
+#endif
 } settingsStruct_t;
+
+
 
 typedef enum DMR_DESTINATION_FILTER_TYPE
 {

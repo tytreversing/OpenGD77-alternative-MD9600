@@ -407,6 +407,9 @@ bool settingsRestoreDefaultSettings(void)
 	nonVolatileSettings.UNUSED_1 = 0;
 	nonVolatileSettings.UNUSED_2 = 0;
 #endif
+#if defined(PLATFORM_MD9600)
+	nonVolatileSettings.buttonP3 = P3_MODE_NONE;
+#endif
 
 #if !defined(PLATFORM_GD77S)
 	aprsBeaconingUpdateSystemSettingsFromConfiguration();

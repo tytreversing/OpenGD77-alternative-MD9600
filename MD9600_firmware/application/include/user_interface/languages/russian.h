@@ -159,7 +159,7 @@ const stringsTable_t russianLanguage =
 .set_quickkey				= "Быстр. действ.", // MaxLen: 16
 .dual_watch				= "Двойной Rx", // MaxLen: 16
 .info					= "Информация", // MaxLen: 16 (with ':' + .off or .ts or .pwr or .both)
-.pwr					= "Мощн.",
+.pwr					= "мощн.",
 .user_power				= "Своя мощн.",
 .temperature				= "Температура", // MaxLen: 16 (with ':' + .celcius or .fahrenheit)
 .celcius				= "°C",
@@ -289,13 +289,16 @@ const stringsTable_t russianLanguage =
 .trackball				= "Трекбол", // MaxLen 16 (with ':' + .on or .off)
 .dmr_force_dmo				= "Принуд. DMO", // MaxLen 16 (with ':' + .n_a or .on or .off)
 .dmrid                    = "Ввод DMR ID",
-.dmridtext = "ID",
-.aliastext = "Алиас",
-.vfomenu = " Меню        Каналы ",
-.chmenu = " Меню           VFO ",
-.satcom = "SATCOM",
-.ham = "Р/Л",
-.cps = "по CPS",
+.dmridtext                = "ID",
+.aliastext                = "Алиас",
+.vfomenu                  = " Меню        Каналы ",
+.chmenu                   = " Меню           VFO ",
+.satcom                   = "SATCOM",
+.ham                      = "Р/Л",
+.cps                      = "по CPS",
+.p3button                 = "P3",
+.p3reverse                = "реверс",
+.p3talkaround             = "прямая связь",
 };
 /********************************************************************
  *

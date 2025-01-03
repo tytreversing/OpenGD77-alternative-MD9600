@@ -57,6 +57,9 @@ enum
 #if defined(PLATFORM_MD2017)
 	GENERAL_OPTIONS_TRACKBALL_ENABLED,
 #endif
+#if defined(PLATFORM_MD9600)
+	GENERAL_OPTIONS_P3_BUTTON,
+#endif
 	GENERAL_OPTIONS_MENU_HOTSPOT_TYPE,
 	//GENERAL_OPTIONS_MENU_TEMPERATURE_CALIBRATON,
 	GENERAL_OPTIONS_MENU_BATTERY_CALIBRATON,
@@ -161,6 +164,27 @@ static void updateScreen(bool isFirstRun)
 
 			switch(mNum)
 			{
+#if defined(PLATFORM_MD9600)
+			    case GENERAL_OPTIONS_P3_BUTTON:
+			    	leftSide = currentLanguage->p3button; //режим кнопки P3
+			    	switch (nonVolatileSettings.buttonP3)
+			    	{
+			    	case P3_MODE_NONE:
+			    		rightSideConst = currentLanguage->off;
+			    		break;
+			    	case P3_MODE_REVERSE:
+			    		rightSideConst = currentLanguage->p3reverse;
+			    		break;
+			    	case P3_MODE_TALKAROUND:
+			    		rightSideConst = currentLanguage->p3talkaround;
+			    		break;
+			    	default:
+			    		rightSideConst = currentLanguage->off;
+			    		nonVolatileSettings.buttonP3 = P3_MODE_NONE;
+			    		break;
+			    	}
+			    	break;
+#endif
 				case GENERAL_OPTIONS_MENU_KEYPAD_TIMER_LONG:// Timer longpress
 					leftSide = currentLanguage->key_long;
 					snprintf(rightSideVar, SCREEN_LINE_BUFFER_SIZE, "%1d.%1d", nonVolatileSettings.keypadTimerLong / 10, nonVolatileSettings.keypadTimerLong % 10);
@@ -503,6 +527,14 @@ static void handleEvent(uiEvent_t *ev)
 			menuDataGlobal.newOptionSelected = false;
 			switch(menuDataGlobal.currentItemIndex)
 			{
+#if defined(PLATFORM_MD9600)
+			    case GENERAL_OPTIONS_P3_BUTTON:
+			    	if (nonVolatileSettings.buttonP3 < P3_MODE_TALKAROUND)
+			    						{
+			    							settingsIncrement(nonVolatileSettings.buttonP3, 1);
+			    						}
+			    	break;
+#endif
 				case GENERAL_OPTIONS_MENU_KEYPAD_TIMER_LONG:
 					if (nonVolatileSettings.keypadTimerLong < 90)
 					{
@@ -630,6 +662,14 @@ static void handleEvent(uiEvent_t *ev)
 			menuDataGlobal.newOptionSelected = false;
 			switch(menuDataGlobal.currentItemIndex)
 			{
+#if defined(PLATFORM_MD9600)
+			    case GENERAL_OPTIONS_P3_BUTTON:
+			    	if (nonVolatileSettings.buttonP3 > P3_MODE_NONE)
+			    	{
+			    		settingsDecrement(nonVolatileSettings.buttonP3, 1);
+			    	}
+			    	break;
+#endif
 				case GENERAL_OPTIONS_MENU_KEYPAD_TIMER_LONG:
 					if (nonVolatileSettings.keypadTimerLong > 1)
 					{
