@@ -205,7 +205,7 @@ uint16_t calibrationGetRxTuneForFrequency(int freq)
 	int upper;
 	int lower;
 
-	if (freq > 30000000)
+	if (freq > 34900000)
 	{
 		index = (freq - RADIO_HARDWARE_FREQUENCY_BANDS[RADIO_BAND_UHF].calTableMinFreq) / 1000000;
 		offset = (freq - RADIO_HARDWARE_FREQUENCY_BANDS[RADIO_BAND_UHF].calTableMinFreq) % 1000000;
@@ -251,7 +251,7 @@ uint8_t calibrationGetAnalogIGainForFrequency(int freq)
 	int upper;
 	int lower;
 
-	if (freq > 30000000)
+	if (freq > 34900000)
 	{
 		index = (freq - RADIO_HARDWARE_FREQUENCY_BANDS[RADIO_BAND_UHF].calTableMinFreq) / 1000000;
 		offset = (freq - RADIO_HARDWARE_FREQUENCY_BANDS[RADIO_BAND_UHF].calTableMinFreq) % 1000000;
@@ -297,7 +297,7 @@ uint8_t calibrationGetAnalogQGainForFrequency(int freq)
 	int upper;
 	int lower;
 
-	if (freq > 30000000)
+	if (freq > 34900000)
 	{
 		index = (freq - RADIO_HARDWARE_FREQUENCY_BANDS[RADIO_BAND_UHF].calTableMinFreq) / 1000000;
 		offset = (freq - RADIO_HARDWARE_FREQUENCY_BANDS[RADIO_BAND_UHF].calTableMinFreq) % 1000000;
@@ -344,7 +344,7 @@ uint8_t calibrationGetDigitalIGainForFrequency(int freq)
 	int upper;
 	int lower;
 
-	if (freq > 30000000)
+	if (freq > 34900000)
 	{
 		index = (freq - RADIO_HARDWARE_FREQUENCY_BANDS[RADIO_BAND_UHF].calTableMinFreq) / 1000000;
 		offset = (freq - RADIO_HARDWARE_FREQUENCY_BANDS[RADIO_BAND_UHF].calTableMinFreq) % 1000000;
@@ -390,7 +390,7 @@ uint8_t calibrationGetDigitalQGainForFrequency(int freq)
 	int upper;
 	int lower;
 
-	if (freq > 30000000)
+	if (freq > 34900000)
 	{
 		index = (freq - RADIO_HARDWARE_FREQUENCY_BANDS[RADIO_BAND_UHF].calTableMinFreq) / 1000000;
 		offset = (freq - RADIO_HARDWARE_FREQUENCY_BANDS[RADIO_BAND_UHF].calTableMinFreq) % 1000000;
@@ -441,7 +441,7 @@ void calibrationGetPowerForFrequency(int freq, calibrationPowerValues_t *powerSe
 	int upper;
 	int lower;
 
-	if (freq > 30000000)
+	if (freq > 34900000)
 	{
 		index = (freq - RADIO_HARDWARE_FREQUENCY_BANDS[RADIO_BAND_UHF].calTableMinFreq) / 1000000;
 		offset = (freq - RADIO_HARDWARE_FREQUENCY_BANDS[RADIO_BAND_UHF].calTableMinFreq) % 1000000;

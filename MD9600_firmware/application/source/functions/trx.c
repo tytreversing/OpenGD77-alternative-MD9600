@@ -61,7 +61,7 @@ const frequencyHardwareBand_t RADIO_HARDWARE_FREQUENCY_BANDS[RADIO_BANDS_TOTAL_N
 													{
 														.calTableMinFreq = 13600000,
 														.minFreq=12700000,
-														.maxFreq=17800000
+														.maxFreq=34900000
 													},// VHF
 #if !defined(PLATFORM_MD9600)
 													{
@@ -919,7 +919,7 @@ static void trxUpdateRadioCalibration(void)
 	if (currentRadioDeviceId == RADIO_DEVICE_PRIMARY)
 	{
 		//More calibrations to add later.
-		if (currentRadioDevice->currentRxFrequency > 30000000)
+		if (currentRadioDevice->currentRxFrequency > 34900000)
 		{
 			UHFRxTuningVolts = calibrationGetRxTuneForFrequency(currentRadioDevice->currentRxFrequency);
 		}

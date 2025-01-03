@@ -2770,7 +2770,7 @@ void HRC6000SetFMTx(void)
 	uint8_t CTCdeviation;
 	uint8_t DCSdeviation;
 
-	if(trxGetFrequency() > 30000000)
+	if(trxGetFrequency() > 34900000)
 	{
 		if(trxGetBandwidthIs25kHz())
 		{

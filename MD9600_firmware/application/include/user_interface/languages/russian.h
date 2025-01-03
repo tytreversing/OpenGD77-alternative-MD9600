@@ -171,7 +171,7 @@ const stringsTable_t russianLanguage =
 .vfo_freq_bind_mode			= "Связ. Tx с Rx",
 .overwrite_qm				= "Переписать?", //Maxlen: 14 chars
 .eco_level				= "Экономайзер",
-.buttons				= "Кнопки",
+.buttons				= "кнопки",
 .leds					= "Светодиод",
 .scan_dwell_time			= "Время скан.",
 .battery_calibration			= "Кал. акк.",
@@ -293,6 +293,9 @@ const stringsTable_t russianLanguage =
 .aliastext = "Алиас",
 .vfomenu = " Меню        Каналы ",
 .chmenu = " Меню           VFO ",
+.satcom = "SATCOM",
+.ham = "Р/Л",
+.cps = "по CPS",
 };
 /********************************************************************
  *

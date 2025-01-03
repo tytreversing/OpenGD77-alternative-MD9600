@@ -291,7 +291,7 @@ void radioSetFrequency(uint32_t freq, bool Tx)
 	uint16_t reg8;
 	uint16_t reg9;
 
-	if (freq < 30000000)
+	if (freq < 34900000)
 	{
 		bandIsVHF = true;
 	}
@@ -458,7 +458,7 @@ void radioSetFrequency(uint32_t freq, bool Tx)
 	uint32_t reg6;
 
 
-	if (freq < 30000000)
+	if (freq < 34900000)
 	{
 		bandIsVHF = true;
 	}
@@ -678,7 +678,7 @@ void radioSetFrequency(uint32_t freq, bool Tx)
 	uint16_t reg29;
 	uint16_t reg2A;
 
-	if (freq < 30000000)
+	if (freq < 34900000)
 	{
 		bandIsVHF = true;
 	}
@@ -871,7 +871,7 @@ void radioFastTx(bool tx)
 {
 	if (tx)
 	{
-		if (trxGetFrequency() > 30000000)
+		if (trxGetFrequency() > 34900000)
 		{
 			HAL_GPIO_WritePin(T5_U_SW_GPIO_Port, T5_U_SW_Pin, GPIO_PIN_SET);
 		}

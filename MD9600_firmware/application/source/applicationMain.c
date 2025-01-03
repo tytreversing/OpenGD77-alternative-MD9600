@@ -360,7 +360,7 @@ void applicationMainTask(void)
 		vTaskDelay(10);			//allow time for this to complete.
 	}
 
-	wasRestoringDefaultsettings = settingsLoadSettings((buttonsFrontPanelRead() & FRONT_KEY_P3) == FRONT_KEY_P3);
+	wasRestoringDefaultsettings = settingsLoadSettings(((buttonsFrontPanelRead() & FRONT_KEY_P3) == FRONT_KEY_P3) && !((buttonsFrontPanelRead() & FRONT_KEY_DOWN) == FRONT_KEY_DOWN));
 
 	radioPowerOn();
 
